@@ -1,0 +1,9 @@
+[submodule "Lesson1"]
+	path = Lesson1
+	url = https://github.com/HoangMinhNg/SpringBootLession1.git
+[submodule "Lesson2"]
+	path = Lesson2
+	url = https://github.com/HoangMinhNg/SpringBootLession2.git
+[submodule "Lesson3"]
+	path = Lesson3
+	url = https://github.com/HoangMinhNg/SpringBootLesson3.git
