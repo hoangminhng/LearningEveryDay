@@ -1,5 +1,8 @@
 package com.hoangminhng.lesson9;
 
+import com.hoangminhng.lesson9.dao.AppDAO;
+import com.hoangminhng.lesson9.entity.Instructor;
+import com.hoangminhng.lesson9.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +16,22 @@ public class Lesson9Application {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(){
+    public CommandLineRunner commandLineRunner(AppDAO appDAO){
         return runner -> {
-            System.out.println("Hello world");
+            createInstructor(appDAO);
         };
+    }
+
+    private void createInstructor(AppDAO appDAO) {
+        Instructor tempInstructor = new Instructor("Chad", "Darby", "darby@gmail.com");
+
+        InstructorDetail tempInstructorDetail = new InstructorDetail("https://www.youtube.com/", "love to code");
+
+        tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+        System.out.println("Saving instructor: " + tempInstructor);
+        appDAO.save(tempInstructor);
+
+        System.out.println("Done!");
     }
 }
